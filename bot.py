@@ -6,3 +6,4 @@ from config import config
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=config.bot_token.get_secret_value())
+dp = Dispatcher(bot)
