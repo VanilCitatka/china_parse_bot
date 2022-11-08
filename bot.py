@@ -1,7 +1,8 @@
 import logging
 import asyncio
+from keyboard import *
 from aiogram import Bot, Dispatcher, types
-from aiogram.filters import Command
+from aiogram.filters import Command, Text
 
 from configs.config_reader import config
 
@@ -13,7 +14,13 @@ dp = Dispatcher()
 
 @dp.message(Command(commands=["start"]))
 async def bot_start(msg: types.Message):
-    await msg.answer('Привет пошёл нахуй')
+    await msg.answer('Привет пошёл нахуй', reply_markup=create_main_keyboard())
+
+
+# Работа с текстом
+@dp.message(Text(text=['Обувь', 'Кроссовки', 'Одежда', 'Сумки']))
+async def text_test(msg: types.Message):
+    await msg.answer('Пошёл нахуй со своими ' + msg.text, reply_markup=create_main_keyboard())
 
 
 async def main():
