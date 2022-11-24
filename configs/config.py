@@ -1,0 +1,2 @@
+#!/usr/bin/python3.9
+BOT_TOKEN = '5985481305:AAFoUbpGINf0ZAX80IRvWja4QQ_P_9zc6bQ'

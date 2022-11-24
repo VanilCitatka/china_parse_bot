@@ -1,17 +1,18 @@
+#!/usr/bin/python3.9
 import logging
 import asyncio
 from handlers import parsing_chat
-from keyboard import *
-from aiogram import Bot, Dispatcher, types
-from aiogram.filters import Command, Text
+from aiogram import Bot, Dispatcher
 
-from configs.config_reader import config
 
+# from configs.config import config
+from configs.config import BOT_TOKEN
+
+bot = Bot(token=BOT_TOKEN)
 logging.basicConfig(level=logging.INFO)
 
 
 async def main():
-    bot = Bot(token=config.bot_token.get_secret_value())
     dp = Dispatcher()
     dp.include_router(parsing_chat.parse)
 

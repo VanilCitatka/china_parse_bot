@@ -1,7 +1,8 @@
+#!/usr/bin/python3.9
 from aiogram.utils.keyboard import ReplyKeyboardBuilder
 from aiogram import types
 
-kb = [
+main_kb = [
     [
         types.KeyboardButton(text='Часы'),
         types.KeyboardButton(text='Кроссовки'),
@@ -10,8 +11,18 @@ kb = [
     ]
 ]
 
+back_kb = [
+    [
+        types.KeyboardButton(text='Назад'),
+    ]
+]
+
 
 def create_main_keyboard():
-    builder = ReplyKeyboardBuilder(kb)
-    builder.adjust(2)
-    return builder.as_markup()
+    builder = ReplyKeyboardBuilder(main_kb).adjust(2)
+    return builder.as_markup(resize_keyboard=True)
+
+
+def create_back_keyboard():
+    builder = ReplyKeyboardBuilder(back_kb).adjust(1)
+    return builder.as_markup(resize_keyboard=True)
